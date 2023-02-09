@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% extends 'main/mainpage.html' %}
+<html lang="en">
+<head>
+    {% load static %}
+    {% load crispy_forms_tags %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block Masthead%}
+        <!-- Masthead-->
+        <header class="masthead-example" style = "background-image: url('{% static 'deepLearning/assets/img/bg-masthead.jpg' %}'); no-repeat center center;">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                            <form enctype="multipart/form-data" id="imageUploadForm" method="post"> 
+                                <fieldset style="border: 5px solid #006F84; width:300; height:200;  padding:20px;">
+                                    <legend>차량 이미지</legend>    
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="text-center text-white">
+                            {% if inference_img %}
+                            <img src="{{inference_img}}" class="img-fluid" height="350" width="350" style="border: 5px solid #006F84;"></img>
+                            {% for idx in results_list %}
+                                <table class="table table-info table-striped" bordercolor="#006F84" width ="100" height="100">
+                                    <tr> 
+                                        <th>칼럼</th>
+                                        <th>속성</th>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td>Class Number</td>
+                                        <td>{{idx.class}}</td>
+                                    </tr>
+                               
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>{{idx.name}}</td>
+                                    </tr>
+                                </table>
+                            {% endfor %}
+            
+                        {% else %}
+                            The inferenced image will be displayed here.
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    {% endblock  %}
+
+    {% block IconsGrid %}{% endblock  %}
+    {% block ImageShowcases %}{% endblock  %}
+    
+    
+</body>
+</html>
+
+
+
+

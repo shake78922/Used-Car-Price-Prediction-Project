@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% extends 'main/mainpage.html' %}
+<html lang="en">
+<head>
+    {% load static %}
+    {% load bootstrap4 %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block Masthead%}
+    <!-- Masthead-->
+    <header class="masthead-example" style = "background-image: url('{% static 'deepLearning/assets/img/bg-masthead.jpg' %}'); no-repeat center center;">
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+                    <div class="text-center text-white" style="position: absolute;  top: -100px; right: 500px">
+                        <form  method = "post" >
+                            <fieldset style="border: 5px solid #006F84; width:300; height:200;  padding:20px;">
+                                <legend>차량 정보</legend>
+                            {% csrf_token %}
+                            Brand: <select onchange="categoryChange(this)" class="form-control">
+                                <option>제조사를 선택해주세요</option>
+                                <option value="0">GM대우</option>
+                                <option value="1">기아</option>
+                                <option value="2">르노삼성</option>
+                                <option value="3">쉐보레</option>
+                                <option value="4">쌍용</option>
+                                <option value="5">현대</option>
+                    
+                            </select>
+                            
+                            <select id="car_class" name='car_class'  class="form-control"> </select>
+                            
+                            <script>
+                            function categoryChange(e) {
+                                
+                                var gm_car = ['GM대우_라세티', 'GM대우_알페온'];
+                    
+                                var kia_car = ['기아_K3', '기아_K5', '기아_K7', '기아_K9', '기아_니로 하이브리드', '기아_더뉴레이', '기아_레이', 
+                                '기아_모닝', '기아_모하비', '기아_스토닉', '기아_스팅어', '기아_스포티지 더볼드', '기아_스포티지R', '기아_스포티지', 
+                                '기아_쏘렌토', '기아_쏘울EV', '기아_쏘울', '기아_올뉴K3', '기아_올뉴모닝', '기아_카니발11인승', '기아_카니발', '기아_카니발하이리무진', 
+                                '기아_카렌스', '기아_포르테', '기아_프라이드 해치백'];
+                    
+                                var ren_car = ['르노삼성_QM3', '르노삼성_QM6', '르노삼성_SM3', '르노삼성_SM520', '르노삼성_SM5', '르노삼성_SM6', '르노삼성_SM7', '르노삼성_클리오'];
+                    
+                                var chv_car = ['쉐보레_넥스트스파크', '쉐보레_말리부', '쉐보레_볼트EV', '쉐보레_볼트', '쉐보레_스파크', '쉐보레_임팔라', '쉐보레_캡티바', '쉐보레_크루즈', '쉐보레_트랙스'];
+                    
+                                var ssy_car = [ '쌍용_G4렉스턴', '쌍용_코란도 스포츠', '쌍용_코란도C', '쌍용_코란도투리스모', '쌍용_티볼리 에어', '쌍용_티볼리'];
+                    
+                                var hyd_car = ['현대_G80스포츠', '현대_G90', '현대_i30', '현대_KONA 1.6T', '현대_그랜저 IG', '현대_그랜저HG240', '현대_그랜저', '현대_더뉴그랜드스타렉스', '현대_더뉴아반떼AD',
+                                 '현대_맥스크루즈', '현대_벨로스터', '현대_소나타 LF', '현대_소나타 LPI', '현대_소나타 NF', '현대_소나타 YF', '현대_소나타 뉴라이즈', '현대_소나타 하이브리드', '현대_소나타', '현대_스타렉스', 
+                                 '현대_싼타페', '현대_아반떼 XD', '현대_아반떼AD', '현대_아반떼MD', '현대_아슬란', '현대_아이오닉 일렉트릭', '현대_아이오닉 하이브리드', '현대_에쿠스', '현대_엑센트', '현대_제네시스 G70', 
+                                 '현대_제네시스 G80', '현대_제네시스G380', '현대_투싼1.7D', '현대_투싼', '현대_팰리세이드'];
+                    
+                                var target = document.getElementById("car_class");
+                            
+                                if(e.value == "0") var d = gm_car;
+                                else if(e.value == "1") var d = kia_car;
+                                else if(e.value == "2") var d = ren_car;
+                                else if(e.value == "3") var d = chv_car;
+                                else if(e.value == "4") var d = ssy_car;
+                                else if(e.value == "5") var d = hyd_car;
+                            
+                    
+                            
+                                target.options.length = 0;
+                            
+                                for (x in d) {
+                                    var opt = document.createElement("option");
+                                    opt.value = d[x];
+                                    opt.innerHTML = d[x];
+                                    target.appendChild(opt);
+                                }
+                            }
+                            </script>
+                            {%bootstrap_form form%}
+                            <br>
+                            <br>
+                            <input  class="btn btn-primary" type="submit" value="upload">
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% endblock  %}
+
+    
+    {% block IconsGrid %}{% endblock  %}
+    {% block ImageShowcases %}{% endblock  %}
+</body>
+</html>

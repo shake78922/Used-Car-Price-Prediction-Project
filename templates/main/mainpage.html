@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        {% load static %}
+        
+        {% block Bootstrap %}
+        <title>Vehicle image Search - (VIS)</title>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+    
+        <!-- Core theme JS-->
+        <script src="{% static 'main/js/scripts.js' %}"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        {% endblock %}
+
+        {% block  css %}
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="/static/main/assets/favicon.ico" />
+       
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'main/css/styles.css' %}" rel="stylesheet" />
+        {% endblock  %}
+    </head>
+    <body>
+
+        {% block Navigation %}
+        <!-- Navigation-->
+        <nav class="navbar navbar-light bg-light static-top" id="up">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'main:mainpage' %}">VIS</a>
+            </div>
+        </nav>
+        {% endblock  %}
+
+        {% block Masthead%}
+        <!-- Masthead-->
+        <header class="masthead" style = "background-image: url('{% static 'main/assets/img/bg-masthead.jpg' %}'); no-repeat center center;">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                            <!-- Page heading-->
+                            <h2 class="mb-5">
+                                You can check information about Car
+                                
+                            </h2>
+                        </div>
+                        <div class="text-center text-white">
+                            <h2><a href="{% url 'carSearch:FP' %}">사용하기</a></h2>
+                        </div>
+                        <div class="text-center text-white">
+                             간단한 소개글
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        {% endblock  %}
+
+
+        {% block IconsGrid %}
+        <!-- Icons Grid-->
+        <section class="features-icons bg-light text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><i class="bi-cart-check m-auto text-primary"></i></div>
+                            <h3 style="color: white;">Variety of car models</h3>
+                            
+                            <p class="lead mb-0" style="color: white;">
+                                총 100여종의 차량의 정보들과 중고가를 찾아보실수 있습니다
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><i class="bi-image m-auto text-primary"></i></div>
+                            <h3 style="color: white;">Upload car Image</h3>
+
+                            <p class="lead mb-0" style="color: white;">
+                                찾고 싶은 차량을 사진을 찍어 저희 사이트의 업로드 기능에 등록하시면, <br>
+                                차량의 정보와 중고가를 보다 빠르게 찾으실수 있습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><i class="bi-search m-auto text-primary"></i></div>
+                            <h3 style="color: white;">Easy car search</h3>
+                            
+                            <p class="lead mb-0" style="color: white;">
+                                자세한 정보 필요없이, 사진과 간단한 키워드만 입력하시면, <br>
+                                보다 쉽고 빠른 원하는 차량정보를 알려드립니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endblock  %}
+
+
+        {% block ImageShowcases%}
+        <!-- Image Showcases-->
+        <section class="showcase">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{% static 'main/assets/img/bg-showcase-1.jpg' %}'); no-repeat;"></div>
+                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                        <h2>Car search function model - Deep</h2>
+                        <p class="lead mb-0">
+                            Developer : YOO SEUNGYAN - 유 승완 <br>
+                            url : <a href="{% url 'deepLearning:model_1'%}">Deep Learning Model</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('{% static 'main/assets/img/bg-showcase-2.jpg' %}'); no-repeat;"></div>
+                    <div class="col-lg-6 my-auto showcase-text">
+                        <h2>Car search function model - Machine</h2>
+                        <p class="lead mb-0">
+                            Developer : CHOI YOUNGJAE - 최 영재 <br>
+                            url : <a href="{% url 'machineLearning:model_2'%}">Machine Learning Model</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endblock  %}
+
+
+
+
+        {% block Footer%}
+        <!-- Footer-->
+        <footer class="footer bg-light" id="signdown">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; Copyrightⓒ2022 VIS All rights reserved.</p>
+                    </div>
+                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto" >
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item me-4">
+                                <a href="#!"><i class="bi-github fs-3" style="color: white;"></i></a>
+                            </li>
+
+                            <li class="list-inline-item me-4">
+                                <a href="#!"><i class="bi-book fs-3" style="color: white;"></i></a>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <a class="btn btn-primary" href="#up">Up</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        {% endblock  %}
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends 'main/mainpage.html' %}
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block Masthead%}
+        <!-- Masthead-->
+        <header class="masthead-example" style = "background-image: url('{% static 'machineLearning/assets/img/bg-masthead.jpg' %}'); no-repeat center center;">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                           <table class="table table-info table-striped" bordercolor="#006F84" width ="1100" height="500">
+                            <tr> 
+                                <th>칼럼</th>
+                                <th>속성</th>
+                           </tr>
+                            
+                           
+                            <tr>
+                                <td>이름</td>
+                                <td>{{carinfo.carName}}</td>
+                            </tr>
+                           
+                            <tr>
+                                <td> 연식</td>
+                                <td>{{carinfo.carYear}}년/{{carinfo.carMonth}}</td>
+                            </tr>
+                    
+                            <tr>
+                                <td>연료 </td>
+                                <td>{{carinfo.carFuel}}</td>
+                            </tr>
+                    
+                            <tr>
+                                <td>중고가 </td>
+                                <td>{{carinfo.carprice}} 만원 </td>
+                            </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    {% endblock  %}
+
+    {% block IconsGrid %}{% endblock  %}
+    {% block ImageShowcases %}{% endblock  %}
+</body>
+</html>

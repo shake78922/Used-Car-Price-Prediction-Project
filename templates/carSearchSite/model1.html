@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends 'main/mainpage.html' %}
+<html lang="en">
+<head>
+    {% load static %}
+    {% load bootstrap4 %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    {% block Masthead%}
+        <!-- Masthead-->
+        <header class="masthead-example" style = "background-image: url('{% static 'carSearchSite/assets/img/bg-masthead.jpg' %}'); no-repeat center center;">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                           <form method="post" enctype="multipart/form-data" style="position: absolute;  top: -100px; right: 500px">
+                                <fieldset style="border: 5px solid #006F84; width:300; height:200;  padding:20px;">
+                                    <legend>차량 정보</legend>
+                                {% csrf_token %}
+                                {% bootstrap_form form %}
+                                {% bootstrap_form imageform %}
+                                <br>
+                                <br>
+                                <input class="btn btn-primary" type="submit" value="upload">
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    {% endblock  %}
+
+    {% block IconsGrid %}{% endblock  %}
+    {% block ImageShowcases %}{% endblock  %}
+    
+</body>
+</html>
